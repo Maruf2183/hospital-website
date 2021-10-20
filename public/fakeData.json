@@ -1,0 +1,38 @@
+[
+    {
+        "id": "jasdfh234",
+        "name": "Diagnose & Research",
+        "image": "https://media.istockphoto.com/photos/medicine-doctor-and-robotics-research-and-analysis-diagnose-checking-picture-id1250153293",
+        "description": "Diagnosis is central to medical practice. It refers to knowing (“gnosis”) about the health of a client. Typically, diagnostic research focuses on estimating the sensitivity and specificity of individual diagnostic tests, their predictive values, and other parameters of interest (such as likelihood ratios, ROC curves, test reliability)."
+    },
+    {
+        "id": "jasdsadlfj34",
+        "name": "Dental Surgery",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSfK0D02zxkn15WsrzPMEbNRWvoDyftqO7b2A&usqp=CAU",
+        "description": "Dental surgery is any of a number of medical procedures that involve artificially modifying dentition; in other words, surgery of the teeth, gums and jaw bones"
+    },
+    {
+        "id": "234sdfh2938",
+        "name": "Cancer Oncology",
+        "image": "https://image.shutterstock.com/image-illustration/dna-strand-cancer-cell-oncology-260nw-659631763.jpg",
+        "description": "Oncology is the study of cancer. An oncologist is a doctor who treats cancer and provides medical care for a person diagnosed with cancer. An oncologist may also be called a cancer specialist. The field of oncology has 3 major areas based on treatments: medical oncology, radiation oncology, and surgical oncology."
+    },
+    {
+        "id": "04a456jfr",
+        "name": "Neurology",
+        "image": "https://bookingdoctors.com/wp-content/uploads/2021/04/Neurology-307x287-1.jpg",
+        "description": "Neurology is the branch of medicine concerned with the study and treatment of disorders of the nervous system. The nervous system is a complex, sophisticated system that regulates and coordinates body activities. It has two major divisions: Central nervous system: the brain and spinal cord."
+    },
+    {
+        "id": "05a234sdf",
+        "name": "Pregnancy & Births",
+        "image": "https://www.unicef.org/sites/default/files/styles/press_release_feature/public/UNI341033_0.jpg?itok=5dvqBgrP",
+        "description": "Giving birth to a child is one of life’s most intense experiences. And the nine months of pregnancy are an exciting time for many women and their partners. They may find their feelings ranging from joy and hope to worries and fears: How will everything go? Am I doing things right? How will life change once the baby has arrived"
+    },
+    {
+        "id": "06aldfj345",
+        "name": "Heart Center",
+        "image": "https://rajasthanhospital.in/departments_images/95802_heart-centre.jpg",
+        "description": "The Philippine Heart Center is a hospital specializing in the treatment of heart ailments. It has rooms for paying patients and charity patients[3] and admits more than 14,000 patients every year, including 3,300 that undergo heart surgery.[4] It holds regular training programs for medical professionals.[5] It as one of the busiest congenital heart surgery centers in Asia, according to its website.[6] It is currently headed by cardiologist Joel M. Abanill"
+    }
+]
