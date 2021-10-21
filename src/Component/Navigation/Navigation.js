@@ -1,8 +1,11 @@
+import Button from '@restart/ui/esm/Button';
 import React from 'react';
 import { Container, Nav, Navbar } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
+import useAuth from '../../Firebase/useAuth';
 
 const Navigation = () => {
+    const { user,logOut } = useAuth();
     return (
         <div>
             <Navbar  collapseOnSelect fixed='top' expand='sm' bg='primary' variant='dark'> 
@@ -27,12 +30,18 @@ const Navigation = () => {
                             <NavLink className='text-white mx-3' to='/contact' activeStyle={{
                                 fontWeight: "bold",
                                 
-                            }} >Contact</NavLink> 
-                            <NavLink className='text-white mx-3' to='/login' activeStyle={{
-                                fontWeight: "bold",
+                            }} >Contact</NavLink>
+                            
+                            {user?.email? <Button className='Log-out btn btn-primary' onClick={logOut}>log out</Button>:
+                                <NavLink className='text-white mx-3' to='/login' activeStyle={{
+                                    fontWeight: "bold",
                                 
-                            }} >Log In</NavLink> 
+                                }} >Log In</NavLink>}
+
+                           
                         </Nav>
+
+                        <h2>{user.displayName}</h2>
                     </Navbar.Collapse>
                     <Navbar.Toggle aria-controls='responsive-navbar-nav'>
 

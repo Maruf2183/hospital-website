@@ -1,9 +1,10 @@
-import Button from '@restart/ui/esm/Button';
+
 import React from 'react';
 import { Card, Col } from 'react-bootstrap';
+import { NavLink } from 'react-router-dom';
 
 const Service = ({ data }) => {
-    const {name,image,description}=data
+    const {id,name,image,description}=data
     return (
         <Col className='my-3'>
 
@@ -14,7 +15,7 @@ const Service = ({ data }) => {
             <Card.Text >
               {description}
             </Card.Text>
-            <Button className='btn btn-primary px-5' variant="primary">Details</Button>
+            <NavLink to={`/service/${id}`}className='btn btn-primary px-5' variant="primary">Details</NavLink>
           </Card.Body>
         </Card>
       </Col>

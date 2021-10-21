@@ -11,6 +11,10 @@ import Contact from './Component/Contact/Contact';
 import SignIn from './Component/LogInSignin/SignIn';
 import LogIn from './Component/LogInSignin/LogIn';
 import AuthProvider from './Contex/AuthProvider';
+import PrivateRoute from './Component/PrivateRoute/PrivateRoute';
+import Details from './Component/Details/Details';
+import NotFound from './Component/Notfound/NotFound';
+import Footer from './Component/Footer/Footer';
 
 
 
@@ -27,25 +31,33 @@ function App() {
           <Route exact path='/home'>
             <Home></Home>
           </Route>
-          <Route path='/about'>
+          <PrivateRoute path='/about'>
             <About></About>
-          </Route>
-         <Route path='/service'>
+          </PrivateRoute>
+         <Route exact path='/service'>
             <Services></Services>
           </Route>
-          <Route path='/contact'>
+          <PrivateRoute path='/contact'>
             <Contact></Contact>
 
-          </Route>
+          </PrivateRoute>
           <Route exact path='/signIn'>
             <SignIn></SignIn>
           </Route>
           <Route exact path='/login'>
             <LogIn></LogIn>
-          </Route>
+            </Route>
+            <PrivateRoute path="/service/:id">
+              <Details>
+
+              </Details>
+            </PrivateRoute>
+            <Route path='*'>
+              <NotFound></NotFound>
+            </Route>
           
         </Switch>
-     
+     <Footer></Footer>
       </Router>
       </AuthProvider>
     </div>

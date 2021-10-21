@@ -2,6 +2,10 @@ import React, { useEffect, useState } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import Service from '../Service/Service';
 import './Home.css'
+
+
+
+
 const Home = () => {
   const [services, setServices] = useState([]);
   const [srtservice, setSrtservice] = useState([]);
@@ -28,6 +32,7 @@ const Home = () => {
           <div className='home'>
             <Row>
               <div style={{ marginTop: '300px' }}>
+                <div className='text-primary'><h1>WirusHub</h1><p>make your life simple</p></div>
                 <h2 className=' banner-text p-4'>A Team of medical Professional</h2><br />
                 <h2 className='banner-text p-4 '>To Take Care of Your Health</h2>
               </div>

@@ -1,7 +1,7 @@
 
 
-import React, { /* useEffect, */ useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import React, {useState } from 'react';
+
 import useAuth from '../../Firebase/useAuth';
 
 const LogIn = () => {
@@ -43,11 +43,11 @@ const LogIn = () => {
 
                 <div className="input-field">
                     <span>Email</span>
-                    <input onBlur={manageEmail} type="Email" placeholder="Email" />
+                    <input onBlur={manageEmail} type="Email" placeholder="Email" required />
                 </div>
                 <div className="input-field">
                     <span>Pass</span>
-                    <input onBlur={managaePassword} type="password" placeholder="password" />
+                    <input onBlur={managaePassword} type="password" placeholder="password" required />
                 </div>
                 <div className='text-danger'>{errorx}</div>
                 <button type='submit' className="buttonx">Log In</button>
