@@ -16,12 +16,12 @@ const Home = () => {
       .then(data => setServices(data))
   }, []);
 
-  console.log(services);
+  
   useEffect(() => {
     const shortservicex = services.slice(1, 4)
     setSrtservice(shortservicex)
   }, [services])
-  console.log(srtservice);
+  
 
 
   return (
@@ -43,7 +43,7 @@ const Home = () => {
       </div>
 
 
-      <Container className='apoinment'>
+      <Container style={{marginTop:'-50px'}} className='apoinment'>
         <Row className='p-5'>
           <Col >
             <div>
@@ -133,9 +133,7 @@ const Home = () => {
 
 
 
-    </div>
-
-
+</div>
 
   );
 };

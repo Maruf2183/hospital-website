@@ -5,43 +5,44 @@ import { NavLink } from 'react-router-dom';
 import useAuth from '../../Firebase/useAuth';
 
 const Navigation = () => {
-    const { user,logOut } = useAuth();
+    const { user, logOut,isloading} = useAuth();
+   
     return (
         <div>
-            <Navbar  collapseOnSelect fixed='top' expand='sm' bg='primary' variant='dark'> 
+            <Navbar collapseOnSelect fixed='top' expand='sm' bg='primary' variant='dark'>
                 <Container>
                     <Navbar.Collapse id='responsive-navbar-nav'>
                         <Nav >
-                        <NavLink className='text-white mx-3'  to='/home' activeStyle={{
+                            <NavLink className='text-white mx-3' to='/home' activeStyle={{
                                 fontWeight: "bold",
-                                
+
                             }}>Home</NavLink>
 
                             <NavLink className='text-white mx-3' to='/about' activeStyle={{
                                 fontWeight: "bold",
-                                
+
                             }} >About Us</NavLink>
 
                             <NavLink className='text-white mx-3' to='/service' activeStyle={{
                                 fontWeight: "bold",
-                                
+
                             }} >Our Service</NavLink>
 
                             <NavLink className='text-white mx-3' to='/contact' activeStyle={{
                                 fontWeight: "bold",
-                                
+
                             }} >Contact</NavLink>
-                            
-                            {user?.email? <Button className='Log-out btn btn-primary' onClick={logOut}>log out</Button>:
+
+                            {user?.email || user.displayName ? <Button className='Log-out btn btn-primary' onClick={logOut}>log out</Button> :
                                 <NavLink className='text-white mx-3' to='/login' activeStyle={{
                                     fontWeight: "bold",
-                                
+
                                 }} >Log In</NavLink>}
 
-                           
+
                         </Nav>
 
-                        <h2>{user.displayName}</h2>
+                       <div className='font' style={{marginLeft:'30px',color:'white',height:'100%'}} >   {isloading? <p> ........loading............. </p>:<h2>{user.displayName}</h2>} </div>
                     </Navbar.Collapse>
                     <Navbar.Toggle aria-controls='responsive-navbar-nav'>
 

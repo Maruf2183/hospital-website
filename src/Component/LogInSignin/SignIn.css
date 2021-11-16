@@ -1,7 +1,11 @@
-.container{
-    width: 100%;
-  
 
+  
+.loging-parent{
+  min-height: 150%;
+  height:900px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .signin-form{
     width: 600px;
@@ -11,7 +15,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: #ddd;
+    background-color:white;
     box-shadow: 2px 2px 10px #8080804f;
     border-radius: 7px;
     transition:.2s;
@@ -30,6 +34,9 @@
     grid-template-columns: 15% 85%;
     padding: 0 0.4rem;
     position: relative;
+    align-items: center;
+    justify-content: center;
+
     
     
   }
@@ -37,7 +44,7 @@
     border: 1px solid #00666a;
  
   }
-  .input-field span {
+  .input-field i {
     text-align: center;
     line-height: 55px;
     color: #acacac;

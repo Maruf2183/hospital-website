@@ -1,92 +1,78 @@
 import { useEffect, useState } from "react";
 import initializeFirebase from "./Firebase.init";
-import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signOut, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
-
-
+import { getAuth, signInWithPopup, GoogleAuthProvider, updateProfile, onAuthStateChanged, signOut, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
 initializeFirebase()
-
 const useFirebase = () => {
-
-
     const [user, setUser] = useState({});
-    const [error, setError] = useState('')
-    const [isloading,setIsloading]=useState(true)
+    const [error, setError] = useState(undefined)
+    const [isloading, setIsloading] = useState(true)
     const auth = getAuth();
     const googleProvider = new GoogleAuthProvider();
 
-    const signInWithgoogle = () => {
+    // GOOGLE POP UP LOGIN ===>>>>
+    const signInWithgoogle = (history, comeFrom) => {
         signInWithPopup(auth, googleProvider)
             .then(result => {
                 setUser(result.user)
-                
-            })
-
-            .catch(error => setError(error.message))
-            .finally(() => {
-            setIsloading(false)
-        })
-    }
-
-
-    const signUpWithEmail = (email, password) => {
-        createUserWithEmailAndPassword(auth, email, password)
-            .then(result => {
-                setUser(result.user)
-                
+                history.push(comeFrom)
             })
             .catch(error => setError(error.message))
             .finally(() => {
                 setIsloading(false)
-              
-              
-          })
-    }
-    const signInWithEmail = (email, password) => {
+            })
+    };
+
+    // REGISTER =====>>>>>>
+    const signUpWithEmail = (name, email, password, history, comeFrom) => {
+        setIsloading(true)
+        createUserWithEmailAndPassword(auth, email, password)
+            .then(result => {
+                const { displayName, email, ...rest } = result.user;
+                const userInfo={displayName:name,email:email,...rest}
+                setUser(userInfo)
+                setIsloading(true)
+                updateProfile(auth.currentUser, { displayName: name })
+                history.push(comeFrom);
+            }).catch(error => setError(error.message)).finally(() => {setIsloading(false) })
+                
+    };
+
+    // LOGIN ===>>>>>
+    const signInWithEmail = (email, password, history, comeFrom) => {
         signInWithEmailAndPassword(auth, email, password)
             .then(result => {
                 setUser(result.user)
-                
-            })
-            .catch(error => setError(error.message))
-            .finally(() => {
-            setIsloading(false)
-        })
-
-    }
-
-
-
-
-
-
-
-
+                history.push(comeFrom);
+            }).catch(error => {
+                setError(error.message)
+                console.log(error);
+            }).finally(() => { setIsloading(false) })
+    };
+    
+    // CHEKING VISITOR  STATE ====>>>>
     useEffect(() => {
-        onAuthStateChanged(auth, user => {
+        const unSubscribe = onAuthStateChanged(auth, user => {
             if (user) {
-                console.log('inside state change', user);
                 setUser(user);
             }
+
             else {
                 setUser({})
             }
             setIsloading(false)
+
+            return () => unSubscribe;
         })
     }, []);
 
-
-
+    // LOG OUT ====>>>>>
     const logOut = () => {
+        setIsloading(true)
         signOut(auth)
             .then(() => {
                 setUser({})
-            })
-    }
-
-
-
-
-
+            }).catch(error => setError(error.message)).finally(() => { setIsloading(false) })
+    };
 
 
     return (
@@ -98,12 +84,7 @@ const useFirebase = () => {
             signInWithEmail,
             isloading,
             logOut
-
-
         }
     )
-
-
 }
-
 export default useFirebase;
